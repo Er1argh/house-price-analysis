@@ -1,25 +1,13 @@
-// export interface PredictionInputs {
-//   totsp: number;
-//   livesp: number;
-//   kitsp: number;
-//   dist: number;
-//   metrdist: number;
-//   walk: boolean;
-//   brick: boolean;
-//   floor: boolean;
-//   code: number;
-// }
-
 export interface PredictionInputs {
-  totsp: string;
-  livesp: string;
-  kitsp: string;
-  dist: string;
-  metrdist: string;
-  walk: string;
-  brick: string;
-  floor: string;
-  code: string;
+  totsp: number;
+  livesp: number;
+  kitsp: number;
+  dist: number;
+  metrdist: number;
+  walk: boolean;
+  brick: boolean;
+  floor: boolean;
+  code: number;
 }
 
 export const predictPrice = (inputs: PredictionInputs): number => {

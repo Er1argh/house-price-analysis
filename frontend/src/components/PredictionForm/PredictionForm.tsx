@@ -3,15 +3,15 @@ import styles from './PredictionForm.module.scss';
 import { predictPrice } from '../../services/predictionModel';
 
 const PredictionForm = () => {
-  const [totsp, setTotsp] = useState('');
-  const [livesp, setLivesp] = useState('');
-  const [kitsp, setKitsp] = useState('');
-  const [dist, setDist] = useState('');
-  const [metrdist, setMetrdist] = useState('');
-  const [walk, setWalk] = useState('');
-  const [brick, setBrick] = useState('');
-  const [floor, setFloor] = useState('');
-  const [code, setCode] = useState('');
+  const [totsp, setTotsp] = useState(60);
+  const [livesp, setLivesp] = useState(40);
+  const [kitsp, setKitsp] = useState(8);
+  const [dist, setDist] = useState(10);
+  const [metrdist, setMetrdist] = useState(5);
+  const [walk, setWalk] = useState(false);
+  const [brick, setBrick] = useState(false);
+  const [floor, setFloor] = useState(false);
+  const [code, setCode] = useState(3);
   const [result, setResult] = useState(0);
 
   const onButtonClickHandler = () => {
@@ -23,63 +23,63 @@ const PredictionForm = () => {
       <form className={styles.form}>
         <input
           value={totsp}
-          onChange={(event) => setTotsp(event.target.value)}
+          onChange={(event) => setTotsp(+event.target.value)}
           title="totsp"
           type="text"
           placeholder="totsp..."
         />
         <input
           value={livesp}
-          onChange={(event) => setLivesp(event.target.value)}
+          onChange={(event) => setLivesp(+event.target.value)}
           title="livesp"
           type="text"
           placeholder="livesp..."
         />
         <input
           value={kitsp}
-          onChange={(event) => setKitsp(event.target.value)}
+          onChange={(event) => setKitsp(+event.target.value)}
           title="kitsp"
           type="text"
           placeholder="kitsp..."
         />
         <input
           value={dist}
-          onChange={(event) => setDist(event.target.value)}
+          onChange={(event) => setDist(+event.target.value)}
           title="dist"
           type="text"
           placeholder="dist..."
         />
         <input
           value={metrdist}
-          onChange={(event) => setMetrdist(event.target.value)}
+          onChange={(event) => setMetrdist(+event.target.value)}
           title="metrdist"
           type="text"
           placeholder="metrdist..."
         />
         <input
-          value={walk}
-          onChange={(event) => setWalk(event.target.value)}
+          value={+walk}
+          onChange={(event) => setWalk(+event.target.value === 0 ? false : true)}
           title="walk"
           type="text"
           placeholder="walk..."
         />
         <input
-          value={brick}
-          onChange={(event) => setBrick(event.target.value)}
+          value={+brick}
+          onChange={(event) => setBrick(+event.target.value === 0 ? false : true)}
           title="brick"
           type="text"
           placeholder="brick..."
         />
         <input
-          value={floor}
-          onChange={(event) => setFloor(event.target.value)}
+          value={+floor}
+          onChange={(event) => setFloor(+event.target.value === 0 ? false : true)}
           title="floor"
           type="text"
           placeholder="floor..."
         />
         <input
           value={code}
-          onChange={(event) => setCode(event.target.value)}
+          onChange={(event) => setCode(+event.target.value)}
           title="code"
           type="text"
           placeholder="code..."
