@@ -1,28 +1,22 @@
 import React from 'react';
-import PredictionForm from './components/PredictionForm/PredictionForm';
-import PriceChart from './components/PriceChart/PriceChart';
-import HistoryList from './components/HistoryList/HistoryList';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-const App = () => {
+import './index.scss';
+
+import MainLayout from '@components/layout/MainLayout';
+import HomePage from '@pages/HomePage';
+import NotFoundPage from '@pages/NotFoundPage';
+
+const App: React.FC = () => {
   return (
-    <>
-      <header>
-        <div className="wrapper">
-          <h1>Прогнозирование цен на квартиры в Москве</h1>
-        </div>
-      </header>
-      <main>
-        <div className="wrapper">
-          <section className="form-section">
-            <PredictionForm />
-          </section>
-          <section className="visualization-section">
-            <PriceChart />
-            <HistoryList />
-          </section>
-        </div>
-      </main>
-    </>
+    <BrowserRouter basename="/house-price-analysis/">
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 };
 
